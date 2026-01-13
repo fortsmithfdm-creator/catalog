@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fort Smith FDM - Product Catalogue 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: 0;
+        }
+        
+        .header h1 {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            position: relative;
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        .tagline {
+            font-size: 18px;
+            color: #a0a0a0;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255,107,53,0.1);
+            border-color: rgba(255,107,53,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .contact-item svg {
+            width: 16px;
+            height: 16px;
+            fill: #ff6b35;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .product-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(247,147,30,0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(255,107,53,0.3);
+            box-shadow: 0 20px 60px rgba(255,107,53,0.2);
+        }
+        
+        .product-card:hover::before {
+            opacity: 1;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(15,15,15,0.4) 100%);
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: brightness(0.9) contrast(1.1);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 32px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .product-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        
+        .product-description {
+            font-size: 14px;
+            color: #a0a0a0;
+            margin-bottom: 24px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .product-price {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-button {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255,107,53,0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255,107,53,0.5);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 60px 40px 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02);
+            border-radius: 24px;
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            color: #808080;
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .container {
+                padding: 40px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .product-card {
+                break-inside: avoid;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>FORT SMITH FDM</h1>
+            <p class="tagline">Product Catalogue 2026</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span>roger@roboinfra.com</span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    <span>1-479-279-3049</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./pics/quickloader.jpg" alt="AR-15 Quick Loader">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">AR-15 Quick Loader</div>
+                    <div class="product-description">Load your AR-15 magazines faster and easier. This durable speed loader eliminates thumb fatigue and cuts loading time in half. Simply insert rounds and press—no more sore thumbs after range day. Compatible with standard 5.56/.223 magazines.</div>
+                    <div class="product-footer">
+                        <div class="product-price">$15</div>
+                        <button class="cta-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./pics/wallmount.jpg" alt="Vertical Wall Mount">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Vertical Wall Mount</div>
+                    <div class="product-description">Secure vertical storage that mounts directly through the magazine well. Quick release design—just press your mag release button and lift off. Durable construction keeps your rifle safely mounted yet instantly accessible.</div>
+                    <div class="product-footer">
+                        <div class="product-price">$30</div>
+                        <button class="cta-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./pics/breakdown.png" alt="AR-15 Breakdown">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">AR-15 Breakdown</div>
+                    <div class="product-description">Break down your AR-15 to a small and portable form factor, perfect for backpacking or travel. Quick-detach pins allow you to separate upper and lower receivers in seconds without tools. Durable steel construction ensures reliable reassembly.</div>
+                    <div class="product-footer">
+                        <div class="product-price">$40</div>
+                        <button class="cta-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./pics/cleaningpin.jpg" alt="AR-15 Cleaning Link">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">AR-15 Cleaning Link</div>
+                    <div class="product-description">Holds your upper receiver open for easy cleaning and maintenance. Props the action in the perfect position to access the bolt carrier group and chamber. Durable polymer construction won't scratch your receiver. Essential tool for proper maintenance.</div>
+                    <div class="product-footer">
+                        <div class="product-price">$5</div>
+                        <button class="cta-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./pics/magazineholder.jpg" alt="AR-15 Magazine Holder">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">AR-15 Magazine Holder</div>
+                    <div class="product-description">Organize and display your AR-15 magazines with this sturdy wall-mounted holder. Keeps mags readily accessible and off your workbench. Holds multiple magazines securely in place. Perfect for the range, safe room, or armory setup.</div>
+                    <div class="product-footer">
+                        <div class="product-price">$15</div>
+                        <button class="cta-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./pics/chamberflag.jpg" alt="AR15 Magwell Chamber Flag">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">AR15 Magwell Chamber Flag</div>
+                    <div class="product-description">Bright safety flag inserts through the magwell to clearly indicate an unloaded firearm. Required at most shooting ranges and competitions. Highly visible design ensures safe handling during transport and storage. Essential range safety equipment.</div>
+                    <div class="product-footer">
+                        <div class="product-price">$10</div>
+                        <button class="cta-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-logo">FORT SMITH FDM</div>
+            <p>For orders and inquiries: 1-479-279-3049 | All prices subject to change</p>
+        </div>
+    </div>
+</body>
+</html>
