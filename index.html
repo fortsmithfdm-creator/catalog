@@ -205,7 +205,7 @@
         
         .product-footer {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -220,26 +220,6 @@
             background-clip: text;
         }
         
-        .cta-button {
-            padding: 12px 28px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            border: none;
-            border-radius: 50px;
-            color: #fff;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(255,107,53,0.3);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(255,107,53,0.5);
-        }
-        
         .footer {
             text-align: center;
             padding: 60px 40px 40px;
@@ -247,6 +227,41 @@
             background: rgba(255,255,255,0.02);
             border-radius: 24px;
             margin-top: 40px;
+        }
+        
+        .footer-verse {
+            font-size: 16px;
+            color: #a0a0a0;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .footer-info {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255,107,53,0.1);
+            border-radius: 50px;
+            border: 1px solid rgba(255,107,53,0.2);
+            font-size: 13px;
+            color: #ff6b35;
+            font-weight: 500;
+        }
+        
+        .footer-badge svg {
+            width: 18px;
+            height: 18px;
+            fill: #ff6b35;
         }
         
         .footer p {
@@ -326,7 +341,6 @@
                     <div class="product-description">Load your AR-15 magazines faster and easier. This durable speed loader eliminates thumb fatigue and cuts loading time in half. Simply insert rounds and press—no more sore thumbs after range day. Compatible with standard 5.56/.223 magazines.</div>
                     <div class="product-footer">
                         <div class="product-price">$15</div>
-                        <button class="cta-button">Order Now</button>
                     </div>
                 </div>
             </div>
@@ -340,7 +354,6 @@
                     <div class="product-description">Secure vertical storage that mounts directly through the magazine well. Quick release design—just press your mag release button and lift off. Durable construction keeps your rifle safely mounted yet instantly accessible.</div>
                     <div class="product-footer">
                         <div class="product-price">$30</div>
-                        <button class="cta-button">Order Now</button>
                     </div>
                 </div>
             </div>
@@ -354,7 +367,6 @@
                     <div class="product-description">Break down your AR-15 to a small and portable form factor, perfect for backpacking or travel. Quick-detach pins allow you to separate upper and lower receivers in seconds without tools. Durable steel construction ensures reliable reassembly.</div>
                     <div class="product-footer">
                         <div class="product-price">$40</div>
-                        <button class="cta-button">Order Now</button>
                     </div>
                 </div>
             </div>
@@ -368,7 +380,6 @@
                     <div class="product-description">Holds your upper receiver open for easy cleaning and maintenance. Props the action in the perfect position to access the bolt carrier group and chamber. Durable polymer construction won't scratch your receiver. Essential tool for proper maintenance.</div>
                     <div class="product-footer">
                         <div class="product-price">$5</div>
-                        <button class="cta-button">Order Now</button>
                     </div>
                 </div>
             </div>
@@ -382,7 +393,6 @@
                     <div class="product-description">Organize and display your AR-15 magazines with this sturdy wall-mounted holder. Keeps mags readily accessible and off your workbench. Holds multiple magazines securely in place. Perfect for the range, safe room, or armory setup.</div>
                     <div class="product-footer">
                         <div class="product-price">$15</div>
-                        <button class="cta-button">Order Now</button>
                     </div>
                 </div>
             </div>
@@ -396,7 +406,6 @@
                     <div class="product-description">Bright safety flag inserts through the magwell to clearly indicate an unloaded firearm. Required at most shooting ranges and competitions. Highly visible design ensures safe handling during transport and storage. Essential range safety equipment.</div>
                     <div class="product-footer">
                         <div class="product-price">$10</div>
-                        <button class="cta-button">Order Now</button>
                     </div>
                 </div>
             </div>
@@ -404,6 +413,21 @@
         
         <div class="footer">
             <div class="footer-logo">FORT SMITH FDM</div>
+            <div class="footer-info">
+                <div class="footer-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
+                    </svg>
+                    <span>Proudly Supporting Our Veterans</span>
+                </div>
+                <div class="footer-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span>Manufactured in Fort Smith, Arkansas</span>
+                </div>
+            </div>
+            <div class="footer-verse">"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life." — John 3:16</div>
             <p>For orders and inquiries: 1-479-279-3049 | All prices subject to change</p>
         </div>
     </div>
